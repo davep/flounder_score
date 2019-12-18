@@ -84,4 +84,15 @@ def score_to_the_max( sequence: str ) -> int:
         score( IUAPC.get( base, "" ) ) for base in sequence.upper()
     )
 
+##############################################################################
+# Return a list of individual to-the-max Flounder Scores for a given sequence.
+def scores_to_the_max( sequence: str ) ->  List[ Tuple[ str, int ] ]:
+    """Return a list of individual base to-the-max scores.
+
+    :param str sequence: The sequence to score.
+    :returns: A list of tuples, the base in the first position, the score in the second.
+    :rtype: list[tuple[str,int]]
+    """
+    return [ ( base, score_to_the_max( base ) ) for base in sequence ]
+
 ### score.py ends here
