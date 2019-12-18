@@ -57,7 +57,7 @@ def score( sequence: str ) -> int:
     return sum( SCORES.get( base, 0 ) for base in sequence.upper() )
 
 ##############################################################################
-# Return a list of individual
+# Return a list of individual Flounder Scores for a given sequence.
 def scores( sequence: str ) -> List[ Tuple[ str, int ] ]:
     """Return a list of individual bases with their scores from the sequence.
 
