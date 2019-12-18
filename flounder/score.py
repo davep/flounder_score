@@ -86,7 +86,7 @@ def score_to_the_max( sequence: str ) -> int:
 
 ##############################################################################
 # Return a list of individual to-the-max Flounder Scores for a given sequence.
-def scores_to_the_max( sequence: str ) ->  List[ Tuple[ str, int ] ]:
+def scores_to_the_max( sequence: str ) -> List[ Tuple[ str, int ] ]:
     """Return a list of individual base to-the-max scores.
 
     :param str sequence: The sequence to score.
