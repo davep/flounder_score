@@ -6,7 +6,7 @@ from unittest import main, TestCase
 
 ##############################################################################
 # Local imports.
-from flounder import score, score_to_the_max
+from flounder import score, scores, score_to_the_max
 
 ##############################################################################
 # Test the Flounder Score function.
@@ -28,6 +28,27 @@ class TestFlounderScore( TestCase ):
         self.assertEqual( score( "GTAC" ), 7 )
         self.assertEqual( score( "gtac" ), 7 )
         self.assertEqual( score( "GtAc" ), 7 )
+
+##############################################################################
+# Test the function that returns individual Flounder Scores.
+class TestFlounderScores( TestCase ):
+    """Test the main Flounder Scores function."""
+
+    def test_empty( self ):
+        """Test that an empty sequence is handled."""
+        self.assertEqual( scores( "" ), [] )
+
+    def test_unknown( self ):
+        """Test sequences containing things we don't score."""
+        self.assertEqual( scores( "1" ), [ ( "1", score( "1" ) ) ] )
+        self.assertEqual( scores( "!" ), [ ( "!", score( "!" ) ) ] )
+        self.assertEqual( scores( "§" ), [ ( "§", score( "§" ) ) ] )
+
+    def test_scores( self ):
+        """Test that the individual scores are correct."""
+        self.assertEqual(
+            scores( "GTAC" ), [ ( base, score( base ) ) for base in "GTAC" ]
+        )
 
 ##############################################################################
 # Test the Flounder Score function, to the max.

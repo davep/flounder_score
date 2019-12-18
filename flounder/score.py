@@ -1,6 +1,10 @@
 """Tools to score a DNA sequence using the Flounder method."""
 
 ##############################################################################
+# Python imports.
+from typing import List, Tuple
+
+##############################################################################
 # Dictionary of scores for each letter.
 SCORES = {
     "A": 1,
@@ -51,6 +55,17 @@ def score( sequence: str ) -> int:
     :rtype: int
     """
     return sum( SCORES.get( base, 0 ) for base in sequence.upper() )
+
+##############################################################################
+# Return a list of individual
+def scores( sequence: str ) -> List[ Tuple[ str, int ] ]:
+    """Return a list of individual bases with their scores from the sequence.
+
+    :param str sequence: The sequence to score.
+    :returns: A list of tuples, the base in the first position, the score in the second.
+    :rtype: list[tuple[str,int]]
+    """
+    return [ ( base, score( base ) ) for base in sequence ]
 
 ##############################################################################
 # Return the to-the-max Flounder Score for a given sequence.

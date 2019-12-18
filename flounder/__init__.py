@@ -11,10 +11,14 @@ __version__    = "0.0.1"
 
 ##############################################################################
 # Imports for easier access by the user.
-from .score import score, score_to_the_max
+from .score import score, scores, score_to_the_max
 
 ##############################################################################
 # Declare what you get if you import * from here.
-__all__ = [ "score", "score_to_the_max" ]
+__all__ = [
+    "score",
+    "scores",
+    "score_to_the_max"
+]
 
 ### __init__.py ends here
