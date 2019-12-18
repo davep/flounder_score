@@ -1,6 +1,6 @@
 ###############################################################################
 # Common make values.
-library  := flunder_score
+library  := flounder_score
 run      := pipenv run
 python   := $(run) python
 lint     := $(run) pylint
