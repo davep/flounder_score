@@ -66,7 +66,7 @@ coveragetxt:			# Create a (text) code coverage report
 
 .PHONY: dscheck
 dscheck:			# Perform a doc-string check
-	pydscheck -ei build
+	pydscheck -e
 
 .PHONY: complexity
 complexity:			# Report on the complexity of the code
