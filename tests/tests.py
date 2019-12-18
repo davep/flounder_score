@@ -11,6 +11,7 @@ from flounder import score
 ##############################################################################
 # Test the Flounder Score function.
 class TestFlounderScore( TestCase ):
+    """Test the main Flounder Score calculation."""
 
     def test_empty( self ):
         """Test that an empty sequence is handled."""
