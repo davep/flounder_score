@@ -32,6 +32,16 @@ SCORES = {
 }
 
 ##############################################################################
+# Dictionary of base to IUAPC code mappings for extra scoring.
+IUAPC = {
+    "G": "RSKBDVN",
+    "T": "YWKBDHN",
+    "U": "YWKBDHN",
+    "A": "RWMDHVN",
+    "C": "YSMBHVN"
+}
+
+##############################################################################
 # Return the Flounder Score for a given sequence.
 def score( sequence: str ) -> int:
     """Return the Flounder Score for the given sequence.
@@ -41,5 +51,22 @@ def score( sequence: str ) -> int:
     :rtype: int
     """
     return sum( SCORES.get( base, 0 ) for base in sequence.upper() )
+
+##############################################################################
+# Return the to-the-max Flounder Score for a given sequence.
+def score_to_the_max( sequence: str ) -> int:
+    """Return the to-the-max Flounder Score for the given sequence.
+
+    :param str sequence: The sequence to score.
+    :returns: The Flounder Score for the sequence.
+    :rtype: int
+
+    The to-the-max Flounder Score is like the Flounder Score, but other than
+    scoring the individual base, it scores based on the base and also every
+    IUAPC code that applies.
+    """
+    return score( sequence ) + sum(
+        score( IUAPC.get( base, "" ) ) for base in sequence.upper()
+    )
 
 ### score.py ends here
