@@ -93,4 +93,61 @@ Example:
 >>>
 ```
 
+## Building and testing
+
+This library is designed to built using `make`, `pipenv` and Python 3.7. If
+you have `pipenv` installed and have an installation of Python 3.7 that it
+can see you should only need to type `make` in the root directory of the
+repository.
+
+```sh
+$ make
+pipenv sync --dev
+Installing dependencies from Pipfile.lock (e55651)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 41/41 — 00:00:04
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+All dependencies are now up-to-date!
+```
+
+Unit tests can be run like this:
+
+```sh
+$ make test
+PYTHONPATH=. pipenv run coverage run tests/tests.py
+test_case (__main__.TestFlounderScore)
+Test that we don't care about case. ... ok
+test_empty (__main__.TestFlounderScore)
+Test that an empty sequence is handled. ... ok
+test_unknown (__main__.TestFlounderScore)
+Test sequences containing things we don't score. ... ok
+test_case (__main__.TestFlounderScoreToTheMax)
+Test that we don't care about case. ... ok
+test_empty (__main__.TestFlounderScoreToTheMax)
+Test that an empty sequence is handled. ... ok
+test_unknown (__main__.TestFlounderScoreToTheMax)
+Test sequence containing things we don't score. ... ok
+test_empty (__main__.TestFlounderScores)
+Test that an empty sequence is handled. ... ok
+test_scores (__main__.TestFlounderScores)
+Test that the individual scores are correct. ... ok
+test_unknown (__main__.TestFlounderScores)
+Test sequences containing things we don't score. ... ok
+test_empty (__main__.TestFlounderScoresToTheMax)
+Test that an empty sequence is handled. ... ok
+test_scores (__main__.TestFlounderScoresToTheMax)
+Test that the individual scores are correct. ... ok
+test_unknown (__main__.TestFlounderScoresToTheMax)
+Test sequences containing things we don't score. ... ok
+```
+
+There are a number of other `Makefile` targets available for all sorts of
+linting and testing, as well as for building a package. Simple type:
+
+```sh
+$ make help
+```
+
+to get a list of them all.
+
 [//]: # (README.md ends here)
