@@ -8,6 +8,7 @@ pylint = "*"
 radon = "*"
 coverage = "*"
 sphinx = "*"
+mypy = "*"
 
 [packages]
 

@@ -4,6 +4,7 @@ library  := flounder
 run      := pipenv run
 python   := $(run) python
 lint     := $(run) pylint
+mypy     := $(run) mypy
 coverage := $(run) coverage
 
 ###############################################################################
@@ -63,6 +64,10 @@ coveragerep:			# Create a (HTML) code coverage report
 .PHONY: coveragetxt
 coveragetxt:			# Create a (text) code coverage report
 	$(coverage) report
+
+.PHONY: typecheck
+typecheck:			# Perform static type checks with mypy
+	$(mypy) $(library)
 
 .PHONY: dscheck
 dscheck:			# Perform a doc-string check
