@@ -67,7 +67,7 @@ coveragetxt:			# Create a (text) code coverage report
 
 .PHONY: typecheck
 typecheck:			# Perform static type checks with mypy
-	$(mypy) $(library)
+	$(mypy) $(library) tests
 
 .PHONY: dscheck
 dscheck:			# Perform a doc-string check
