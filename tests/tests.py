@@ -2,7 +2,8 @@
 
 ##############################################################################
 # General imports.
-from unittest import main, TestCase
+from itertools import product
+from unittest  import main, TestCase
 
 ##############################################################################
 # Local imports.
@@ -153,6 +154,13 @@ class TestCodonFlounderScores( TestCase ):
         """Test that a short sequence that has codons gives a score."""
         self.assertEqual( codon_scores( "AAAA" ), [ ( "AAA", 5 ) ] )
         self.assertEqual( codon_scores( "AAAAA" ), [ ( "AAA", 5 ) ] )
+
+    def test_all_scored( self ):
+        """Test that every codon gets some sort of score."""
+        self.assertEqual(
+            len( codon_scores( "".join( "".join( codon ) for codon in product( "GTAC", repeat=3 ) ) ) ),
+            64
+        )
 
 ##############################################################################
 # Main entry point.
