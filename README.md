@@ -25,7 +25,7 @@ And so the *Flounder Score* was born.
 
 ## Usage
 
-The Flounder Score library provides four functions:
+The Flounder Score library provides the following functions:
 
 ### score( sequence: str ) -> int
 
@@ -91,6 +91,38 @@ Example:
 >>> scores_to_the_max( "gtac" )
 [('g', 19), ('t', 24), ('a', 20), ('c', 23)]
 >>>
+```
+
+### codon_score( sequence: str ) -> int
+
+This function takes a string that is a sequence, translates it to an AA
+sequence (using as many codons as it can find from the first position),
+applies a complex algorithm using the values found on the ancient tiles, and
+returns an integer value that is the Flounder Score for that sequence. Case
+is not important. IUAPC codes are taken into account.
+
+For example:
+
+```python
+>>> from flounder import codon_score
+>>> codon_score( "AGACGCAGTCTT" )
+4
+```
+
+### codon_scores( sequence: str ) -> list[ tuple[ str, int ] ]
+
+This function takes a string that is a sequence, translates it to an AA
+sequence (using as many codons as it can find from the first position),
+applies a complex algorithm using the values found on the ancient tiles, and
+returns a list of tuples. Each tuple is the codon that was found in the
+input string, along with its individual score.
+
+For example:
+
+```python
+>>> from flounder import codon_scores
+>>> codon_scores( "AGACGCAGTCTT" )
+[('AGA', 1), ('CGC', 1), ('AGT', 1), ('CTT', 1)]
 ```
 
 ## Building and testing

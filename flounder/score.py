@@ -2,6 +2,7 @@
 
 ##############################################################################
 # Python imports.
+import re
 from typing import List, Tuple
 
 ##############################################################################
@@ -43,6 +44,113 @@ IUAPC = {
     "U": "YWKBDHN",
     "A": "RWMDHVN",
     "C": "YSMBHVN"
+}
+
+##############################################################################
+# Codon to AA mapping.
+CODON_MAP = {
+    # Alanine
+    "GCT": "A",
+    "GCC": "A",
+    "GCA": "A",
+    "GCG": "A",
+    "GCN": "A",
+    # Arginine
+    "CGT": "R",
+    "CGC": "R",
+    "CGA": "R",
+    "CGG": "R",
+    "AGA": "R",
+    "AGG": "R",
+    "CGN": "R",
+    "AGR": "R",
+    # Asparagine
+    "AAT": "N",
+    "AAC": "N",
+    "AAY": "N",
+    # Aspartic acid
+    "GAT": "D",
+    "GAC": "D",
+    "GAY": "D",
+    # Cysteine
+    "TGT": "C",
+    "TGC": "C",
+    "TGY": "C",
+    # Glutamine
+    "CAA": "Q",
+    "CAG": "Q",
+    "CAR": "Q",
+    # Glutamic acid
+    "GAA": "E",
+    "GAG": "E",
+    "GAR": "E",
+    # Glycine
+    "GGT": "G",
+    "GGC": "G",
+    "GGA": "G",
+    "GGG": "G",
+    "GGN": "G",
+    # Histidine
+    "CAT": "H",
+    "CAC": "H",
+    "CAY": "H",
+    # Isoleucine
+    "ATT": "I",
+    "ATC": "I",
+    "ATA": "I",
+    "ATH": "I",
+    # Tyrosine
+    "TTA": "L",
+    "TTG": "L",
+    "CTT": "L",
+    "CTC": "L",
+    "CTA": "L",
+    "CTG": "L",
+    "YTR": "L",
+    "CTN": "L",
+    # Lysine
+    "AAA": "K",
+    "AAG": "K",
+    "AAR": "K",
+    # Methionine
+    "ATG": "M",
+    # Phenylalanine
+    "TTT": "F",
+    "TTC": "F",
+    "TTY": "F",
+    # Proline
+    "CCT": "P",
+    "CCC": "P",
+    "CCA": "P",
+    "CCG": "P",
+    "CCN": "P",
+    # Serine
+    "TCT": "S",
+    "TCC": "S",
+    "TCA": "S",
+    "TCG": "S",
+    "AGT": "S",
+    "AGC": "S",
+    "TCN": "S",
+    "AGY": "S",
+    # Threonine
+    "ACT": "T",
+    "ACC": "T",
+    "ACA": "T",
+    "ACG": "T",
+    "ACN": "T",
+    # Tryptophan
+    "TGG": "W",
+    # Tyrosine
+    "TAT": "Y",
+    "TAC": "Y",
+    "TAY": "Y",
+    # Valine
+    "GTT": "V",
+    "GTC": "V",
+    "GTA": "V",
+    "GTG": "V",
+    "GTN": "V"
 }
 
 ##############################################################################
@@ -94,5 +202,39 @@ def scores_to_the_max( sequence: str ) -> List[ Tuple[ str, int ] ]:
     :rtype: list[tuple[str,int]]
     """
     return [ ( base, score_to_the_max( base ) ) for base in sequence ]
+
+##############################################################################
+# Return the codon-based Flounder score for a given sequence.
+def codon_score( sequence: str ) -> int:
+    """Return the codon-based Flounder Score for the given sequence.
+
+    :param str sequence: The sequence to score.
+    :returns: The Flounder Score for the sequence.
+    :rtype: int
+
+    This scoring system translates the codons in the sequence into AA codes,
+    and then builds a score based on them. Translation of the sequence
+    always starts with the first base, and keeps going as long as there are
+    codons left. Stop codons are scored as 0 and worked past.
+    """
+    return sum(
+        SCORES.get( CODON_MAP.get( codon, "" ), 0 ) for codon in re.findall( "...", sequence.upper() )
+    )
+
+##############################################################################
+# Return a list of individual codon-based Flounder scores for a sequence.
+def codon_scores( sequence: str ) -> List[ Tuple[ str, int] ]:
+    """Return a list of codon-based Flounder Scores for the given sequence.
+
+    :param str sequence: The sequence to score.
+    :returns: The Flounder Score for the sequence.
+    :rtype: int
+
+    This scoring system translates the codons in the sequence into AA codes,
+    and then builds a score based on them. Translation of the sequence
+    always starts with the first base, and keeps going as long as there are
+    codons left. Stop codons are scored as 0 and worked past.
+    """
+    return [ ( codon, codon_score( codon ) ) for codon in re.findall( "...", sequence ) ]
 
 ### score.py ends here
