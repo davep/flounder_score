@@ -227,8 +227,8 @@ def codon_scores( sequence: str ) -> List[ Tuple[ str, int] ]:
     """Return a list of codon-based Flounder Scores for the given sequence.
 
     :param str sequence: The sequence to score.
-    :returns: The Flounder Score for the sequence.
-    :rtype: int
+    :returns: A list of tuples, the codon and its score.
+    :rtype: list[tuple[str,int]]
 
     This scoring system translates the codons in the sequence into AA codes,
     and then builds a score based on them. Translation of the sequence
