@@ -6,6 +6,7 @@ python   := $(run) python
 lint     := $(run) pylint
 mypy     := $(run) mypy
 coverage := $(run) coverage
+test     := $(coverage) run -m unittest discover -v -t $(shell pwd)
 
 ###############################################################################
 # Get the OS so we can make some decisions about other things.
@@ -51,7 +52,7 @@ lint:				# Run Pylint over all the code
 
 .PHONY: test
 test:				# Perform unit tests
-	PYTHONPATH=. $(coverage) run tests/tests.py
+	$(test) tests
 
 .PHONY: coverage
 coverage:			# Show the current code coverage
