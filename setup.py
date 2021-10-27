@@ -48,7 +48,7 @@ setup(
     packages                      = find_packages(),
     package_data                  = { "flounder": [ "py.typed" ] },
     include_package_data          = True,
-    python_requires               = ">=3.2",
+    python_requires               = ">=3.5",
     classifiers                   = (
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
         "Development Status :: 5 - Production/Stable",
