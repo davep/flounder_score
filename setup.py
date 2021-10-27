@@ -48,7 +48,25 @@ setup(
     packages                      = find_packages(),
     package_data                  = { "flounder": [ "py.typed" ] },
     include_package_data          = True,
-    python_requires               = ">=3.2"
+    python_requires               = ">=3.2",
+    classifiers                   = (
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+        "Development Status :: 5 - Production/Stable",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Topic :: Software Development :: Libraries",
+        "Typing :: Typed",
+        "Intended Audience :: Science/Research",
+        "Topic :: Scientific/Engineering :: Bio-Informatics"
+    )
 
 )
 
