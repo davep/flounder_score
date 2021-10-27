@@ -8,6 +8,7 @@ mypy     := $(run) mypy
 coverage := $(run) coverage
 test     := $(coverage) run -m unittest discover -v -t $(shell pwd)
 vermin   := $(run) vermin -v --backport typing --no-parse-comments
+twine    := $(run) twine
 
 ###############################################################################
 # Get the OS so we can make some decisions about other things.
@@ -120,6 +121,18 @@ package:			# Package the library
 .PHONY: spackage
 spackage:			# Source package the library
 	$(python) setup.py sdist
+
+.PHONY: packagecheck
+packagecheck: package		# Check the packaging.
+	$(twine) check dist/*
+
+.PHONY: testdist
+testdist: packagecheck		# Perform a test distribution
+	$(twine) upload --skip-existing --repository testpypi dist/*
+
+.PHONY: dist
+dist: packagecheck		# Upload to pypi
+	$(twine) upload --skip-existing dist/*
 
 ##############################################################################
 # Utility.

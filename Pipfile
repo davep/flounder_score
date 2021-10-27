@@ -11,6 +11,7 @@ sphinx = "*"
 mypy = "*"
 python-language-server = "*"
 vermin = "*"
+twine = "*"
 
 [packages]
 
