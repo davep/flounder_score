@@ -90,6 +90,9 @@ toocomplex:			# Report on code that is too complex
 maintainability:		# Report on the code maintainability index
 	$(run) radon mi --multi --show $(library)
 
+.PHONY: checkall
+checkall: dscheck lint stricttypecheck test coverage # Check all the things
+
 ##############################################################################
 # Documentation.
 .PHONY: docs
