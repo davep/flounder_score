@@ -3,7 +3,7 @@
 ##############################################################################
 # Module information.
 __author__     = "Dave Pearson"
-__copyright__  = "Copyright 2019, Dave Pearson"
+__copyright__  = "Copyright 2019-2021, Dave Pearson"
 __credits__    = [ "Dave Pearson" ]
 __maintainer__ = "Dave Pearson"
 __email__      = "davep@davep.org"
