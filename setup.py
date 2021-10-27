@@ -47,7 +47,7 @@ setup(
     license                       = "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
     packages                      = find_packages(),
     include_package_data          = True,
-    python_requires               = ">=3.7"
+    python_requires               = ">=3.2"
 
 )
 
