@@ -1,8 +1,8 @@
 """Setup file for the Flounder Score library."""
 
 ##############################################################################
-# Imports.
-from os         import path
+# Python imports.
+from pathlib    import Path
 from setuptools import setup, find_packages
 
 ##############################################################################
@@ -11,42 +11,43 @@ import flounder
 
 ##############################################################################
 # Work out the location of the README file.
-def readme() -> str:
+def readme():
     """Return the full path to the README file.
 
     :returns: The path to the README file.
-    :rtype: str
+    :rtype: ~pathlib.Path
     """
-    return path.join( path.abspath( path.dirname( __file__ ) ), "README.md" )
+    return Path( __file__).parent.resolve() / "README.md"
 
 ##############################################################################
 # Load the long description for the package.
-def long_desc() -> str:
+def long_desc():
     """Load the long description of the package from the README.
 
     :returns: The long description.
     :rtype: str
     """
-    with open( readme() ) as rtfm:
+    with readme().open( "r", encoding="utf-8" ) as rtfm:
         return rtfm.read()
 
 ##############################################################################
 # Perform the setup.
 setup(
 
-    name                 = "flounder",
-    version              = flounder.__version__,
-    description          = flounder.__doc__,
-    long_description     = long_desc(),
-    url                  = "https://github.com/davep/flounder_score",
-    author               = flounder.__author__,
-    author_email         = flounder.__email__,
-    maintainer           = flounder.__maintainer__,
-    maintainer_email     = flounder.__email__,
-    license              = "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
-    packages             = find_packages(),
-    include_package_data = True,
-    python_requires      = ">=3.7"
+    name                          = "flounder",
+    version                       = flounder.__version__,
+    description                   = flounder.__doc__,
+    long_description              = long_desc(),
+    long_description_content_type = "text/markdown",
+    url                           = "https://github.com/davep/flounder_score",
+    author                        = flounder.__author__,
+    author_email                  = flounder.__email__,
+    maintainer                    = flounder.__maintainer__,
+    maintainer_email              = flounder.__email__,
+    license                       = "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    packages                      = find_packages(),
+    include_package_data          = True,
+    python_requires               = ">=3.7"
 
 )
 
