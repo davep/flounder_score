@@ -171,7 +171,7 @@ def scores( sequence: str ) -> List[ Tuple[ str, int ] ]:
 
     :param str sequence: The sequence to score.
     :returns: A list of tuples, the base in the first position, the score in the second.
-    :rtype: list[tuple[str,int]]
+    :rtype: List[Tuple[str,int]]
     """
     return [ ( base, score( base ) ) for base in sequence ]
 
@@ -199,7 +199,7 @@ def scores_to_the_max( sequence: str ) -> List[ Tuple[ str, int ] ]:
 
     :param str sequence: The sequence to score.
     :returns: A list of tuples, the base in the first position, the score in the second.
-    :rtype: list[tuple[str,int]]
+    :rtype: List[Tuple[str,int]]
     """
     return [ ( base, score_to_the_max( base ) ) for base in sequence ]
 
@@ -228,7 +228,7 @@ def codon_scores( sequence: str ) -> List[ Tuple[ str, int] ]:
 
     :param str sequence: The sequence to score.
     :returns: A list of tuples, the codon and its score.
-    :rtype: list[tuple[str,int]]
+    :rtype: List[Tuple[str,int]]
 
     This scoring system translates the codons in the sequence into AA codes,
     and then builds a score based on them. Translation of the sequence
