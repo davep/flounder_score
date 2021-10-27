@@ -34,7 +34,7 @@ def long_desc():
 # Perform the setup.
 setup(
 
-    name                          = "flounder",
+    name                          = "flounder_score",
     version                       = flounder.__version__,
     description                   = flounder.__doc__,
     long_description              = long_desc(),
