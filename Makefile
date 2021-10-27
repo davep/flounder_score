@@ -7,6 +7,7 @@ lint     := $(run) pylint
 mypy     := $(run) mypy
 coverage := $(run) coverage
 test     := $(coverage) run -m unittest discover -v -t $(shell pwd)
+vermin   := $(run) vermin -v --backport typing --no-parse-comments
 
 ###############################################################################
 # Get the OS so we can make some decisions about other things.
@@ -73,6 +74,10 @@ typecheck:			# Perform static type checks with mypy
 .PHONY: stricttypecheck
 stricttypecheck:		# Perform a strict static type checks with mypy
 	$(mypy) --strict $(library) tests
+
+.PHONY: minpy
+minpy:				# Check the minimum supported Python version
+	$(vermin) $(library)
 
 .PHONY: dscheck
 dscheck:			# Perform a doc-string check
