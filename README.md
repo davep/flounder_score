@@ -174,7 +174,7 @@ Test sequences containing things we don't score. ... ok
 ```
 
 There are a number of other `Makefile` targets available for all sorts of
-linting and testing, as well as for building a package. Simple type:
+linting and testing, as well as for building a package. Type:
 
 ```sh
 $ make help
