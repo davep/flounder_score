@@ -1,5 +1,11 @@
 # Flounder Score ChangeLog
 
+## v1.2.0
+
+**Released: 2021-10-28**
+
+- Tidied up and made available on pypi.
+
 ## v1.1.0
 
 **Released: 2019-12-20**
