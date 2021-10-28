@@ -50,7 +50,7 @@ setup(
     include_package_data          = True,
     python_requires               = ">=3.5",
     classifiers                   = (
-        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"
+        "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
         "Development Status :: 5 - Production/Stable",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3.5",
