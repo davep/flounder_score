@@ -25,6 +25,15 @@ of one language should and could be applied to another.
 
 And so the *Flounder Score* was born.
 
+## Installation
+
+The library can be installed [from
+PyPI](https://pypi.org/project/flounder-score/):
+
+```sh
+$ pip3 install flounder-score
+```
+
 ## Usage
 
 The Flounder Score library provides the following functions:
