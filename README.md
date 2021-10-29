@@ -138,9 +138,9 @@ For example:
 
 ## Building and testing
 
-This library is designed to built using `make`, `pipenv` and Python 3.8. If
-you have `pipenv` installed and have an installation of Python 3.8 that it
-can see you should only need to type `make` in the root directory of the
+This library is designed to be built using `make`, `pipenv` and Python 3.8.
+If you have `pipenv` installed and have an installation of Python 3.8 that
+it can see you should only need to type `make` in the root directory of the
 repository.
 
 ```sh
