@@ -1,5 +1,7 @@
 # Flounder Score
 
+[![PyPI](https://badge.fury.io/py/flounder-score.svg)](https://badge.fury.io/py/flounder-score)
+
 ## Introduction
 
 As a software developer who knows little to nothing about biology, genetics
