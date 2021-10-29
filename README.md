@@ -53,7 +53,7 @@ Example:
 7
 ```
 
-### scores( sequence: str ) -> list[ tuple[ str, int ] ]
+### scores( sequence: str ) -> List[ Tuple[ str, int ] ]
 
 This function takes a string that is a sequence, applies a complex algorithm
 using the values found on the ancient tiles, and returns a list of tuples.
@@ -87,7 +87,7 @@ Example:
 86
 ```
 
-### scores_to_the_max( sequence: str ) -> list[ tuple[ str, int ] ]
+### scores_to_the_max( sequence: str ) -> List[ Tuple[ str, int ] ]
 
 This function takes a string that is a sequence, applies a complex algorithm
 using the values found on the ancient tiles, and returns a list of tuples.
@@ -120,7 +120,7 @@ For example:
 4
 ```
 
-### codon_scores( sequence: str ) -> list[ tuple[ str, int ] ]
+### codon_scores( sequence: str ) -> List[ Tuple[ str, int ] ]
 
 This function takes a string that is a sequence, translates it to an AA
 sequence (using as many codons as it can find from the first position),
