@@ -146,8 +146,13 @@ repository.
 ```sh
 $ make
 pipenv sync --dev
-Installing dependencies from Pipfile.lock (e55651)…
-  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 41/41 — 00:00:04
+Creating a virtualenv for this project...
+Pipfile: /Users/davep/flounder_score/Pipfile
+Using /Users/davep/.pyenv/versions/3.8.12/bin/python3.8 (3.8.12) to create virtualenv...
+✔ Successfully created virtual environment!
+Virtualenv location: /Users/davep/flounder_score/.venv
+Installing dependencies from Pipfile.lock (5d6c60)...
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 58/58 — 00:00:23
 To activate this project's virtualenv, run pipenv shell.
 Alternatively, run a command inside the virtualenv with pipenv run.
 All dependencies are now up-to-date!
@@ -157,31 +162,56 @@ Unit tests can be run like this:
 
 ```sh
 $ make test
-PYTHONPATH=. pipenv run coverage run tests/tests.py
-test_case (__main__.TestFlounderScore)
+pipenv run coverage run -m unittest discover -v -t flounder_score tests
+test_case (tests.tests.TestCodonFlounderScore)
 Test that we don't care about case. ... ok
-test_empty (__main__.TestFlounderScore)
+test_empty (tests.tests.TestCodonFlounderScore)
 Test that an empty sequence is handled. ... ok
-test_unknown (__main__.TestFlounderScore)
+test_short (tests.tests.TestCodonFlounderScore)
+Test sequences that are short of having a full codon. ... ok
+test_some_short (tests.tests.TestCodonFlounderScore)
+Test that a short sequence that has codons gives a score. ... ok
+test_unknown (tests.tests.TestCodonFlounderScore)
 Test sequences containing things we don't score. ... ok
-test_case (__main__.TestFlounderScoreToTheMax)
+test_all_scored (tests.tests.TestCodonFlounderScores)
+Test that every codon gets some sort of score. ... ok
+test_empty (tests.tests.TestCodonFlounderScores)
+Test that an empty sequences is handled. ... ok
+test_short (tests.tests.TestCodonFlounderScores)
+Test sequences that are short of having a full codon. ... ok
+test_some_short (tests.tests.TestCodonFlounderScores)
+Test that a short sequence that has codons gives a score. ... ok
+test_unknown (tests.tests.TestCodonFlounderScores)
+Test sequences containing things we don't score. ... ok
+test_case (tests.tests.TestFlounderScore)
 Test that we don't care about case. ... ok
-test_empty (__main__.TestFlounderScoreToTheMax)
+test_empty (tests.tests.TestFlounderScore)
 Test that an empty sequence is handled. ... ok
-test_unknown (__main__.TestFlounderScoreToTheMax)
+test_unknown (tests.tests.TestFlounderScore)
+Test sequences containing things we don't score. ... ok
+test_case (tests.tests.TestFlounderScoreToTheMax)
+Test that we don't care about case. ... ok
+test_empty (tests.tests.TestFlounderScoreToTheMax)
+Test that an empty sequence is handled. ... ok
+test_unknown (tests.tests.TestFlounderScoreToTheMax)
 Test sequence containing things we don't score. ... ok
-test_empty (__main__.TestFlounderScores)
+test_empty (tests.tests.TestFlounderScores)
 Test that an empty sequence is handled. ... ok
-test_scores (__main__.TestFlounderScores)
+test_scores (tests.tests.TestFlounderScores)
 Test that the individual scores are correct. ... ok
-test_unknown (__main__.TestFlounderScores)
+test_unknown (tests.tests.TestFlounderScores)
 Test sequences containing things we don't score. ... ok
-test_empty (__main__.TestFlounderScoresToTheMax)
+test_empty (tests.tests.TestFlounderScoresToTheMax)
 Test that an empty sequence is handled. ... ok
-test_scores (__main__.TestFlounderScoresToTheMax)
+test_scores (tests.tests.TestFlounderScoresToTheMax)
 Test that the individual scores are correct. ... ok
-test_unknown (__main__.TestFlounderScoresToTheMax)
+test_unknown (tests.tests.TestFlounderScoresToTheMax)
 Test sequences containing things we don't score. ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.007s
+
+OK
 ```
 
 There are a number of other `Makefile` targets available for all sorts of
