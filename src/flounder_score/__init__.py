@@ -2,20 +2,23 @@
 
 ##############################################################################
 # Module information.
-__author__     = "Dave Pearson"
-__copyright__  = "Copyright 2019-2021, Dave Pearson"
-__credits__    = [ "Dave Pearson" ]
+__author__ = "Dave Pearson"
+__copyright__ = "Copyright 2019-2021, Dave Pearson"
+__credits__ = ["Dave Pearson"]
 __maintainer__ = "Dave Pearson"
-__email__      = "davep@davep.org"
-__version__    = "1.2.0"
-__licence__    = "GPLv3+"
+__email__ = "davep@davep.org"
+__version__ = "1.2.0"
+__licence__ = "GPLv3+"
 
 ##############################################################################
 # Imports for easier access by the user.
 from .score import (
-    score, scores,
-    score_to_the_max, scores_to_the_max,
-    codon_score, codon_scores,
+    codon_score,
+    codon_scores,
+    score,
+    score_to_the_max,
+    scores,
+    scores_to_the_max,
 )
 
 ##############################################################################
@@ -26,7 +29,7 @@ __all__ = [
     "score_to_the_max",
     "scores_to_the_max",
     "codon_score",
-    "codon_scores"
+    "codon_scores",
 ]
 
 ### __init__.py ends here
