@@ -1,4 +1,5 @@
 lib      := flounder_score
+module   := flounder
 src      := src/
 tests    := tests/
 run      := uv run
@@ -10,17 +11,15 @@ ruff     := $(run) ruff
 lint     := $(ruff) check --select I
 fmt      := $(ruff) format
 reports  := .reports
-test     := $(run) pytest --verbose --cov=$(lib)
+test     := $(run) pytest --verbose --cov=$(module)
 coverage := $(test) --cov-report html:$(reports)
 mypy     := $(run) mypy
 mkdocs   := $(run) mkdocs
 spell    := $(run) codespell
 
 ##############################################################################
-# Local "interactive testing" of the code.
-.PHONY: run
-run:				# Run the code in a testing context
-	$(python) -m $(lib)
+# Show help by default.
+.DEFAULT_GOAL := help
 
 ##############################################################################
 # Setup/update packages the system requires.

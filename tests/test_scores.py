@@ -6,7 +6,7 @@ from pytest import mark
 
 ##############################################################################
 # Library imports.
-from flounder_score import score, scores
+from flounder import score, scores
 
 
 ##############################################################################

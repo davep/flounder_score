@@ -10,7 +10,7 @@ from pytest import mark
 
 ##############################################################################
 # Library imports.
-from flounder_score import codon_score, codon_scores
+from flounder import codon_score, codon_scores
 
 
 ##############################################################################

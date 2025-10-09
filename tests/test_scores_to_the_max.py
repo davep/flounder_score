@@ -6,7 +6,7 @@ from pytest import mark
 
 ##############################################################################
 # Library imports.
-from flounder_score import score_to_the_max, scores_to_the_max
+from flounder import score_to_the_max, scores_to_the_max
 
 
 ##############################################################################
