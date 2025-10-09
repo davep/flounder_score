@@ -59,6 +59,7 @@ dev = [
     "ruff>=0.12.9",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
+    "markdown-exec>=1.11.0",
 ]
 
 [[tool.uv.index]]

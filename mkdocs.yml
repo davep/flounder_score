@@ -6,15 +6,16 @@ nav:
   - Guide:
       - index.md
   - Library Contents:
-      - flounder_score.md
+      - flounder.md
   - Change Log: changelog.md
 
 watch:
-  - src/flounder_score
+  - src/flounder
 
 markdown_extensions:
   - admonition
   - pymdownx.snippets
+  - pymdownx.superfences
   - markdown.extensions.attr_list
   - pymdownx.tabbed:
       alternate_style: true
@@ -22,6 +23,7 @@ markdown_extensions:
 plugins:
   search:
   autorefs:
+  markdown-exec:
   mkdocstrings:
     default_handler: python
     enable_inventory: true
