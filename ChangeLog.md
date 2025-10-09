@@ -1,5 +1,12 @@
 # Flounder Score ChangeLog
 
+## Unreleased
+
+**Released: WiP**
+
+- **BREAKING CHANGE**: Renamed the module from `flounder` to
+  `flounder_score`.
+
 ## v1.2.0
 
 **Released: 2021-10-28**
