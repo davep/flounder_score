@@ -46,6 +46,9 @@ build-backend = "uv_build"
 [tool.uv]
 managed = true
 
+[tool.uv.build-backend]
+module-name = "flounder"
+
 [dependency-groups]
 dev = [
     "pre-commit>=4.2.0",
