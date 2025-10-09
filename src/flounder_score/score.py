@@ -2,11 +2,10 @@
 
 ##############################################################################
 # Python imports.
-import re
+from re import findall
 from typing import Final
 
 ##############################################################################
-# Dictionary of scores for each letter.
 SCORES: Final[dict[str, int]] = {
     "A": 1,
     "B": 3,
@@ -35,9 +34,9 @@ SCORES: Final[dict[str, int]] = {
     "Y": 4,
     "Z": 10,
 }
+"""Scores for each letter of the alphabet."""
 
 ##############################################################################
-# Dictionary of base to IUAPC code mappings for extra scoring.
 IUAPC: Final[dict[str, str]] = {
     "G": "RSKBDVN",
     "T": "YWKBDHN",
@@ -45,9 +44,9 @@ IUAPC: Final[dict[str, str]] = {
     "A": "RWMDHVN",
     "C": "YSMBHVN",
 }
+"""Base to IUAPC code mappings for extra scoring."""
 
 ##############################################################################
-# Codon to AA mapping.
 CODON_MAP: Final[dict[str, str]] = {
     # Alanine
     "GCT": "A",
@@ -152,15 +151,18 @@ CODON_MAP: Final[dict[str, str]] = {
     "GTG": "V",
     "GTN": "V",
 }
+"""Codon to amino acid mapping."""
 
 
 ##############################################################################
 def score(sequence: str) -> int:
-    """Return the Flounder Score for the given sequence.
+    """Return the flounder score for the given sequence.
 
-    :param str sequence: The sequence to score.
-    :returns: The Flounder Score for the sequence.
-    :rtype: int
+    Args:
+        sequence: The sequence to score.
+
+    Returns:
+        The flounder score.
     """
     return sum(SCORES.get(base, 0) for base in sequence.upper())
 
@@ -169,9 +171,12 @@ def score(sequence: str) -> int:
 def scores(sequence: str) -> list[tuple[str, int]]:
     """Return a list of individual bases with their scores from the sequence.
 
-    :param str sequence: The sequence to score.
-    :returns: A list of tuples, the base in the first position, the score in the second.
-    :rtype: List[Tuple[str,int]]
+    Args:
+        sequence: The sequence to score.
+
+    Returns:
+        A list of tuples, the base in the first position, the score in the
+            second.
     """
     return [(base, score(base)) for base in sequence]
 
@@ -180,13 +185,15 @@ def scores(sequence: str) -> list[tuple[str, int]]:
 def score_to_the_max(sequence: str) -> int:
     """Return the to-the-max Flounder Score for the given sequence.
 
-    :param str sequence: The sequence to score.
-    :returns: The Flounder Score for the sequence.
-    :rtype: int
+    Args:
+        sequence: The sequence to score.
 
-    The to-the-max Flounder Score is like the Flounder Score, but other than
+    Returns:
+        The flounder score for the sequence.
+
+    The to-the-max flounder score is like the flounder score, but other than
     scoring the individual base, it scores based on the base and also every
-    IUAPC code that applies.
+    [IUAPC code](https://www.bioinformatics.org/sms/iupac.html) that applies.
     """
     return score(sequence) + sum(
         score(IUAPC.get(base, "")) for base in sequence.upper()
@@ -197,9 +204,11 @@ def score_to_the_max(sequence: str) -> int:
 def scores_to_the_max(sequence: str) -> list[tuple[str, int]]:
     """Return a list of individual base to-the-max scores.
 
-    :param str sequence: The sequence to score.
-    :returns: A list of tuples, the base in the first position, the score in the second.
-    :rtype: List[Tuple[str,int]]
+    Args:
+        sequence: The sequence to score.
+
+    Returns:
+        A list of tuples, the base in the first position, the score in the second.
     """
     return [(base, score_to_the_max(base)) for base in sequence]
 
@@ -208,9 +217,11 @@ def scores_to_the_max(sequence: str) -> list[tuple[str, int]]:
 def codon_score(sequence: str) -> int:
     """Return the codon-based Flounder Score for the given sequence.
 
-    :param str sequence: The sequence to score.
-    :returns: The Flounder Score for the sequence.
-    :rtype: int
+    Args:
+        sequence: The sequence to score.
+
+    Returns:
+        The Flounder Score for the sequence.
 
     This scoring system translates the codons in the sequence into AA codes,
     and then builds a score based on them. Translation of the sequence
@@ -219,7 +230,7 @@ def codon_score(sequence: str) -> int:
     """
     return sum(
         SCORES.get(CODON_MAP.get(codon, ""), 0)
-        for codon in re.findall("...", sequence.upper())
+        for codon in findall("...", sequence.upper())
     )
 
 
@@ -227,16 +238,18 @@ def codon_score(sequence: str) -> int:
 def codon_scores(sequence: str) -> list[tuple[str, int]]:
     """Return a list of codon-based Flounder Scores for the given sequence.
 
-    :param str sequence: The sequence to score.
-    :returns: A list of tuples, the codon and its score.
-    :rtype: List[Tuple[str,int]]
+    Args:
+        sequence: The sequence to score.
+
+    Returns:
+        A list of tuples, the codon and its score.
 
     This scoring system translates the codons in the sequence into AA codes,
     and then builds a score based on them. Translation of the sequence
     always starts with the first base, and keeps going as long as there are
     codons left. Stop codons are scored as 0 and worked past.
     """
-    return [(codon, codon_score(codon)) for codon in re.findall("...", sequence)]
+    return [(codon, codon_score(codon)) for codon in findall("...", sequence)]
 
 
 ### score.py ends here
