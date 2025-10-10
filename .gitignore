@@ -6,3 +6,4 @@ dist/
 .coverage
 .coverage_report/
 .mypy_cache
+site/
