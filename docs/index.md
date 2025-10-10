@@ -1,5 +1,9 @@
 # Introduction
 
+<figure markdown="span">
+    [![DNA](https://imgs.xkcd.com/comics/dna.png)](https://xkcd.com/1605/)
+</figure>
+
 From early 2018 until late 2022 I worked as a software developer attached to
 a bioinformatics team. One of the things I saw the team around me doing was
 a lot of "scoring" of sequences, etc (imagine a lot of layman hand-waving
@@ -22,7 +26,7 @@ The library can be installed [from
 PyPI](https://pypi.org/project/flounder-score/):
 
 ```sh
-$ pip3 install flounder-score
+$ pip install flounder-score
 ```
 
 ## Usage
