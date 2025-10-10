@@ -1,5 +1,13 @@
 # Flounder Score ChangeLog
 
+## Unreleased
+
+**Released: WiP**
+
+- Performed a complete overhaul of the package (build environment, packaging
+  tool, metadata, etc).
+  ([#6](https://github.com/davep/flounder_score/pull/6))
+
 ## v1.2.0
 
 **Released: 2021-10-28**
