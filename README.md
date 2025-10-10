@@ -1,8 +1,14 @@
 # Flounder Score
 
-[![PyPI](https://badge.fury.io/py/flounder-score.svg)](https://badge.fury.io/py/flounder-score)
-
 [![DNA](https://imgs.xkcd.com/comics/dna.png)](https://xkcd.com/1605/)
+
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/davep/flounder-score/code-checks.yaml)](https://github.com/davep/flounder-score/actions)
+[![GitHub commits since latest release](https://img.shields.io/github/commits-since/davep/flounder-score/latest)](https://github.com/davep/flounder-score/commits/main/)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/davep/flounder-score)](https://github.com/davep/flounder-score/issues)
+[![GitHub Release Date](https://img.shields.io/github/release-date/davep/flounder-score)](https://github.com/davep/flounder-score/releases)
+[![PyPI - License](https://img.shields.io/pypi/l/flounder-score)](https://github.com/davep/flounder-score/blob/main/LICENSE)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/flounder-score)](https://github.com/davep/flounder-score/blob/main/pyproject.toml)
+[![PyPI - Version](https://img.shields.io/pypi/v/flounder-score)](https://pypi.org/project/flounder-score/)
 
 From early 2018 until late 2022 I worked as a software developer attached to
 a bioinformatics team. One of the things I saw the team around me doing was
