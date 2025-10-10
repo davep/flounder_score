@@ -1,8 +1,8 @@
 # Flounder Score ChangeLog
 
-## Unreleased
+## v1.3.0
 
-**Released: WiP**
+**Released: 2025-10-10**
 
 - Performed a complete overhaul of the package (build environment, packaging
   tool, metadata, etc).
