@@ -10,6 +10,8 @@ nav:
   - Change Log: changelog.md
 
 watch:
+  - mkdocs.yml
+  - ChangeLog.md
   - src/flounder
 
 markdown_extensions:
